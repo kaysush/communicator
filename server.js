@@ -2,7 +2,7 @@ var passport = require('passport');
 var GoogleStrategy = require('passport-google').Strategy;
 var express = require('express');
 var app = express();
-var port = Number(process.env.PORT || 8080);
+var port = Number(process.env.PORT || 5000);
 
 passport.use( new GoogleStrategy({
 	returnURL: 'http://hdccommunicator.herokuapp.com/auth/google/return',

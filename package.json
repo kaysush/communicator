@@ -4,14 +4,15 @@
   "description": "A simple utility to enable office communication",
   "main": "server.js",
   "scripts": {
+  	"start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "^4.0.0",
-    "socket.io": "^1.0.0-pre",
-    "passport": "^0.2.0",
-    "passport-google": "^0.3.0",
-    "jade": "^1.3.1"
+    "express": ">=4.0.0",
+    "socket.io": ">=1.0.0-pre",
+    "passport": ">=0.2.0",
+    "passport-google": ">=0.3.0",
+    "jade": ">=1.3.1"
   },
   "author": "Sushil Kumar",
   "license": "MIT"

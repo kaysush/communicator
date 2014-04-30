@@ -2,11 +2,12 @@ var passport = require('passport');
 var GoogleStrategy = require('passport-google').Strategy;
 var express = require('express');
 var app = express();
-var port = Number(process.env.PORT || 5000);
+var port = Number(process.env.OPENSHIFT_NODEJS_PORT || 8080);
+var ipAddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 passport.use( new GoogleStrategy({
-	returnURL: 'http://hdccommunicator.herokuapp.com/auth/google/return',
-	realm: 'http://hdccommunicator.herokuapp.com'
+	returnURL: 'http://communicator-sushilkumar.rhcloud.com/auth/google/return',
+	realm: 'http://communicator-sushilkumar.rhcloud.com'
 }, function(identifier, profile, done){
 	User.findOrCreate({openId: identifier}, function(err,user){
 		done(err,user)
@@ -21,6 +22,6 @@ app.get('/auth/google/return',
   passport.authenticate('google', { successRedirect: '/',
                                     failureRedirect: '/login' }));
 
-app.listen(port,function(){
+app.listen(port,ipAddress,function(){
 	console.log('Server Started at ' + port);
 });

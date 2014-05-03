@@ -15,7 +15,7 @@ app.get('/',function(request, response){
 io.sockets.on('connection', function(socket){
 
 	socket.on('message' , function(message){
-		console.log(data);
+		console.log(message);
 		socket.broadcast.emit('message' , message);
 	})
 
